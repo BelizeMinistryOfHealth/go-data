@@ -1,0 +1,1 @@
+"use strict";const app=require("../../server/server");module.exports=function(e){e.addLogs=function(e,n){let s=e.messages;s.forEach(function(e){let n="warning"===e.level?"warn":e.level;app.logger[n](`[Client message]: ${e.message}`)}),n(null,{count:s.length})}};

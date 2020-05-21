@@ -1,0 +1,1 @@
+"use strict";const app=require("../../server/server");module.exports=function(e){e.hasController=!0,e.helpers={},e.helpers.retrieveOnlyAllowedRecords=((e,r)=>app.utils.remote.mergeFilters({where:{or:[{userId:e},{isPublic:!0}]}},r)),e.helpers.isReadOnly=((e,r)=>r.userId!==e),e.helpers.attachCustomProperties=((r,s)=>{s.readOnly=e.helpers.isReadOnly(r,s)})};

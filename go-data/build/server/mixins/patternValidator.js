@@ -1,0 +1,1 @@
+"use strict";module.exports=function(t){t.forEachProperty(function(e){t.definition.properties[e].pattern&&t.validatesFormatOf(e,{with:new RegExp(t.definition.properties[e].pattern),message:`format is invalid. It should match /${t.definition.properties[e].pattern}/`})})};

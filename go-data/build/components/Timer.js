@@ -1,0 +1,1 @@
+function Timer(){let e;this.start=function(){e=process.hrtime()},this.getElapsedMilliseconds=function(){let t=process.hrtime(e);return((1e9*t[0]+t[1])/1e6).toFixed(3)}}module.exports=Timer;

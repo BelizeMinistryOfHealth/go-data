@@ -1,0 +1,1 @@
+module.exports=function(o){if(o.settings.signoutUsersOnRestart){const e=o.dataSources.mongoDb.connector;e.connect(()=>e.collection("accessToken").remove({}))}};

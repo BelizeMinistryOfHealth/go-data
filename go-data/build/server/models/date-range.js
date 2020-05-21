@@ -1,0 +1,1 @@
+"use strict";module.exports=function(_){_.fieldLabelsMap={startDate:"LNG_OUTBREAK_FIELD_LABEL_START_DATE",endDate:"LNG_OUTBREAK_FIELD_LABEL_END_DATE"},_.printFieldsinOrder=["startDate","endDate"],_.locationsFieldsMap={locationId:"LNG_CASE_FIELD_LABEL_DATE_RANGE_LOCATION"}};

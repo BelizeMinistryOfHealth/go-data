@@ -1,0 +1,1 @@
+"use strict";const disableRemoteMethods=require("./disableRemoteMethods");module.exports=function(t,e){disableRemoteMethods(t,[`prototype.__count__${e}`,`prototype.__create__${e}`,`prototype.__delete__${e}`,`prototype.__destroyById__${e}`,`prototype.__findById__${e}`,`prototype.__get__${e}`,`prototype.__updateById__${e}`,`prototype.__update__${e}`,`prototype.__destroy__${e}`])};

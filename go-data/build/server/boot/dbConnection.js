@@ -1,0 +1,1 @@
+"use strict";module.exports=function(n){n.on("started",function(){n.logger.info("Initializing database connection"),n.models.systemSettings.findOne().then(function(){n.logger.info("Database connection initialized")}).catch(function(e){n.logger.error("Failed to initialize database connection",e),n.logger.exitProcessAfterFlush(1)})})};

@@ -1,0 +1,1 @@
+"use strict";function streamToBuffer(n,o){const t=[];n.on("data",function(n){t.push(n)}),n.on("end",function(){o(null,Buffer.concat(t))})}module.exports={streamToBuffer:streamToBuffer};

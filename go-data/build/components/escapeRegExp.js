@@ -1,0 +1,1 @@
+"use strict";function escapeRegExp(e){return e.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}module.exports=escapeRegExp;

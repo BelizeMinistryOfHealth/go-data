@@ -1,0 +1,1 @@
+"use strict";const app=require("../../server"),async=require("async");let options={_init:!0,_sync:!0};function run(e){const i=[];app.models().forEach(e=>{e.migrate&&i.push(i=>{app.logger.debug(`Migrating ${e.modelName}`),e.migrate(options,r=>{app.logger.debug(`Finished migrating ${e.modelName}`),i(r)})})}),async.parallelLimit(i,10,e)}module.exports=run;

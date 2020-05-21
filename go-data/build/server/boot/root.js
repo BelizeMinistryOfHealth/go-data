@@ -1,0 +1,1 @@
+"use strict";module.exports=function(t){const o=t.loopback.Router();o.get("/status",t.loopback.status()),t.use(o)};

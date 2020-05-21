@@ -1,0 +1,1 @@
+"use strict";const express=require("express"),path=require("path");module.exports=function(e){e.use("/",express.static(`${__dirname}/../../client/dist`)),e.on("started",function(){e.get(/^(?!(?:\/api\/))/,function(e,t){t.sendFile(path.resolve(`${__dirname}/../../client/dist/index.html`))})})};

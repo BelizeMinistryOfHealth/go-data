@@ -1,0 +1,1 @@
+"use strict";module.exports=function(o){o.customRelations={members:{type:"belongsToMany",model:"user",foreignKey:"userIds"},locations:{type:"belongsToMany",model:"location",foreignKey:"locationIds"}}};

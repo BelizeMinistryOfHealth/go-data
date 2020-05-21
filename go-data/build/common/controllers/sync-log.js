@@ -1,0 +1,1 @@
+"use strict";const app=require("../../server/server");module.exports=function(e){app.utils.remote.disableRemoteMethods(e,["create","prototype.patchAttributes"]),e.bulkDelete=function(t,n,r){e.find({where:t}).then(function(e){const t=[];return e.forEach(function(e){t.push(e.destroy(n))}),Promise.all(t)}).then(function(e){r(null,e.length)}).catch(r)}};

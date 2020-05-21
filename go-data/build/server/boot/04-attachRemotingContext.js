@@ -1,0 +1,1 @@
+"use strict";module.exports=function(o){o.remotes().phases.addBefore("invoke","attach-remoting-context").use(function(o,t){o.args.options||(o.args.options={}),o.args.options.remotingContext=o,t()})};

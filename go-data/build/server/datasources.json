@@ -1,0 +1,35 @@
+{
+  "mongoDb": {
+    "host": "",
+    "database": "",
+    "password": "",
+    "name": "mongoDb",
+    "user": "",
+    "connector": "mongodb",
+    "allowExtendedOperators": true,
+    "enableGeoIndexing": true,
+    "ignoreUndefined": true,
+    "maxDepthOfQuery": 24,
+    "lazyConnect": true
+  },
+  "email": {
+    "name": "email",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "SMTP",
+        "host": "smtp.example.com",
+        "secure": true,
+        "port": 465,
+        "auth": {
+          "user": "",
+          "pass": ""
+        }
+      }
+    ]
+  },
+  "memory": {
+    "name": "memory",
+    "connector": "memory"
+  }
+}

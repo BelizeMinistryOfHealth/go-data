@@ -1,0 +1,1 @@
+"use strict";const app=require("../../server/server");module.exports=function(e){e.statusList={wipeReady:"LNG_DEVICE_WIPE_STATUS_READY",wipePending:"LNG_DEVICE_WIPE_STATUS_PENDING"},e.prototype.sendWipeRequest=function(){return app.utils.services.pushNotificationsApi.sendWipeRequest(this.physicalDeviceId)}};

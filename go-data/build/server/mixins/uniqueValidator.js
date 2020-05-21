@@ -1,0 +1,1 @@
+"use strict";module.exports=function(e){e.forEachProperty(function(i){if(e.definition.properties[i].unique){const n={};void 0!==e.definition.properties[i].ignoreCase&&(n.ignoreCase=e.definition.properties[i].ignoreCase),e.validatesUniquenessOf(i,n)}})};

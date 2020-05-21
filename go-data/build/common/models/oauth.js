@@ -1,0 +1,1 @@
+module.exports=function(o){o.hasController=!0};

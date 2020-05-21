@@ -1,0 +1,1 @@
+"use strict";module.exports=function(e){e.remotes().phases.addAfter("request-response-logger","check-app-access-to-route").use(function(e,s){s()})};

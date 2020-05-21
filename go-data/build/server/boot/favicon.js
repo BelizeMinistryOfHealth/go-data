@@ -1,0 +1,1 @@
+"use strict";const path=require("path"),favicon=require("serve-favicon");module.exports=function(e){e.use("/",favicon(path.join(__dirname,"../..","favicon.ico")))};

@@ -1,0 +1,1 @@
+"use strict";module.exports=function(e,o){o.forEach(function(o){e.disableRemoteMethodByName(o)})};

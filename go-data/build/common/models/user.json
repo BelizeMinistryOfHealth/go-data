@@ -1,0 +1,207 @@
+{
+  "name": "user",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+    "ttl": 600
+  },
+  "scope": {
+    "order": ["lastName ASC", "firstName ASC"]
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "defaultFn": "uuidv4",
+      "readOnly": true,
+      "unique": true
+    },
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": true
+    },
+    "roleIds": {
+      "type": ["string"],
+      "required": true
+    },
+    "outbreakIds": {
+      "type": ["string"]
+    },
+    "activeOutbreakId": {
+      "type": "string"
+    },
+    "languageId": {
+      "type": "string",
+      "required": true,
+      "default": "english_us"
+    },
+    "passwordChange": {
+      "type": "boolean",
+      "default": true
+    },
+    "institutionName": {
+      "type": "string"
+    },
+    "telephoneNumbers": {
+      "type": "object"
+    },
+    "settings": {
+      "type": {
+        "caseFields": [
+          "string"
+        ],
+        "dashboard": {
+          "type": "any"
+        }
+      }
+    },
+    "securityQuestions": ["securityQuestion"],
+    "loginRetriesCount": {
+      "type": "number"
+    },
+    "lastLoginDate": {
+      "type": "date"
+    }
+  },
+  "indexes": {
+    "firstName_index": {
+      "firstName": 1
+    },
+    "lastName_index": {
+      "lastName": 1
+    },
+    "email_index": {
+      "email": 1
+    }
+  },
+  "mixins": {
+    "ReadOnlyProperty": true,
+    "UniqueValidator": true,
+    "AuthorTimeStamp": true,
+    "AuditLogger": true,
+    "SoftDelete" : true,
+    "AttachController": true,
+    "IncludeCustomRelations": true,
+    "DateProperty": true
+  },
+  "validations": [],
+  "relations": {
+    "accessTokens": {
+      "type": "hasMany",
+      "model": "accessToken",
+      "foreignKey": "userId",
+      "options": {
+        "disableInclude": true
+      }
+    },
+    "activeOutbreak": {
+      "type": "belongsTo",
+      "model": "outbreak",
+      "foreignKey": "activeOutbreakId"
+    }
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY",
+      "property": "create"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "DENY",
+      "property": "deleteById"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "user_delete",
+      "permission": "ALLOW",
+      "property": "deleteById"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "user_create",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "user_list",
+      "permission": "ALLOW",
+      "property": "find"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "user_list",
+      "permission": "ALLOW",
+      "property": "count"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "user_list_for_filters",
+      "permission": "ALLOW",
+      "property": "find"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "user_list_for_filters",
+      "permission": "ALLOW",
+      "property": "count"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "user_view",
+      "permission": "ALLOW",
+      "property": "findById"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "user_modify",
+      "permission": "ALLOW",
+      "property": "patchAttributes"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "resetPassWithSecurityQuestion"
+    }
+  ],
+  "methods": {
+    "resetPassWithSecurityQuestion": {
+      "accepts": [
+        {
+          "arg": "data",
+          "type": "securityQuestionsTemplate",
+          "http": {
+            "source": "body"
+          },
+          "description": "An object of model property name/value pairs"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "response",
+          "type": {
+            "token": {
+              "type": "string"
+            }
+          },
+          "root": true,
+          "required": true
+        }
+      ],
+      "description": "Return Security Questions",
+      "http": {
+        "verb": "post",
+        "path": "/reset-password-with-security-question"
+      }
+    }
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "name": "template",
+  "base": "extendedPersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "disease": {
+      "type": "string"
+    },
+    "periodOfFollowup": {
+      "type": "number",
+      "description": "Duration for the follow-up period in days"
+    },
+    "frequencyOfFollowUp": {
+      "type": "number"
+    },
+    "frequencyOfFollowUpPerDay": {
+      "type": "number"
+    },
+    "noDaysAmongContacts": {
+      "type": "number",
+      "description": "Number of days used to calculate the proportion of new cases detected among known contacts"
+    },
+    "noDaysInChains": {
+      "type": "number",
+      "description": "Number of days used to calculate the proportion of new cases in known transmission chains"
+    },
+    "noDaysNotSeen": {
+      "type": "number",
+      "description": "Number of days used to filter a list of contacts not seen for a specific number of days"
+    },
+    "noLessContacts": {
+      "type": "number",
+      "description": "Number of contacts used to determine the proportion of cases with less than X contacts"
+    },
+    "longPeriodsBetweenCaseOnset": {
+      "type": "number"
+    },
+    "noDaysNewContacts": {
+      "type": "number",
+      "description": "Number of days used to determine if a contact is new"
+    },
+    "caseInvestigationTemplate": {
+      "type": [
+        "templateQuestion"
+      ]
+    },
+    "contactFollowUpTemplate": {
+      "type": [
+        "templateQuestion"
+      ]
+    },
+    "labResultsTemplate": {
+      "type": [
+        "templateQuestion"
+      ]
+    },
+    "isContactLabResultsActive": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "outbreak_template_list",
+      "permission": "ALLOW",
+      "property": "find"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "outbreak_template_create",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "outbreak_template_modify",
+      "permission": "ALLOW",
+      "property": "patchAttributes"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "outbreak_template_view",
+      "permission": "ALLOW",
+      "property": "findById"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "outbreak_template_delete",
+      "permission": "ALLOW",
+      "property": "deleteById"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "outbreak_template_list",
+      "permission": "ALLOW",
+      "property": "count"
+    }
+  ],
+  "methods": {}
+}

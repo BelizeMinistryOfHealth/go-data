@@ -1,0 +1,1 @@
+"use strict";const _=require("lodash"),errorMap=require("../server/config/apiErrors");module.exports={getError:function(r,e,t){return t=t||errorMap[r].defaultStatusCode,{name:"Error",code:r,message:_.template(errorMap[r].messagePattern)(e),statusCode:t,details:e,toString:function(){return JSON.stringify(this,null,2)}}}};

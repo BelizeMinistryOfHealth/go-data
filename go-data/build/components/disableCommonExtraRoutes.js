@@ -1,0 +1,1 @@
+"use strict";const disableRemoteMethods=require("./disableRemoteMethods");module.exports=function(e){disableRemoteMethods(e,["upsert","findOne","exists","updateAll","replaceById","upsertWithWhere","replaceOrCreate","createChangeStream"])};

@@ -1,0 +1,1 @@
+"use strict";const appConfig=require("../config.json");module.exports=function(){appConfig.mapsApi.enabled&&require("../../components/mapsApi").initClient()};

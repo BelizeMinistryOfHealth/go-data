@@ -1,0 +1,1 @@
+"use strict";module.exports=function(e){e.models.outbreak.nestRemoting("cases"),e.models.outbreak.nestRemoting("contacts"),e.models.outbreak.nestRemoting("clusters"),e.models.outbreak.nestRemoting("attachments")};

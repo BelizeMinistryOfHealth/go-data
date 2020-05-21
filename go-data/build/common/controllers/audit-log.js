@@ -1,0 +1,1 @@
+"use strict";const app=require("../../server/server");module.exports=function(e){app.utils.remote.disableRemoteMethods(e,["create","prototype.patchAttributes","findById","deleteById","prototype.__get__user"])};
