@@ -12,7 +12,15 @@ const isFollowUpPerformed=function(e){
 };
 const getMongoDBConnection=function(){
   let opts={};
-  DbConfig.password&&(opts={auth:{user:DbConfig.user,password:DbConfig.password},authSource:DbConfig.authSource,useNewUrlParse:true});
+  DbConfig.password&&(opts={
+    auth:{
+      user:DbConfig.user,
+      password:DbConfig.password
+    },
+    authSource:DbConfig.authSource,
+    useNewUrlParse:true,
+    protocol: DbConfig.protocol
+  });
   console.log(`Connecting via contactFollowUpReport with user:${dbConfig.user} and password: ${dbConfig.password}`);
   return MongoClient.connect(`mongodb+srv://${dbConfig.user}:${dbConfig.password}@${dbConfig.host}/retryWrites=true&w=majority`, opts)
   .then((e, r)=>r.db(DbConfig.database))

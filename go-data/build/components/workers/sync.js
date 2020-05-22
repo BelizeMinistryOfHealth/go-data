@@ -24,7 +24,15 @@ function createZipArchive(e,r,t){
 
 function getMongoDBConnection(){
   let opts={};
-  dbConfig.password&&(opts={auth:{user:dbConfig.user,password:dbConfig.password},authSource:dbConfig.authSource,useNewUrlParse:true});
+  dbConfig.password&&(opts={
+    auth:{
+      user:dbConfig.user,
+      password:dbConfig.password
+    },
+    authSource:dbConfig.authSource,
+    useNewUrlParse:true,
+    protocol: dbConfig.protocol
+  });
   console.log(`Connecting via sync with user:${dbConfig.user} and password: ${dbConfig.password}`);
   return MongoClient.connect(`mongodb+srv://${dbConfig.user}:${dbConfig.password}@${dbConfig.host}/retryWrites=true&w=majority`, opts)
   .then(function(e, o){
