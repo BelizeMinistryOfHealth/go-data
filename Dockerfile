@@ -7,6 +7,6 @@ COPY go-data-x64.sh ${workdir}
 ADD go-data ${workdir}/go-data
 ADD platforms ${workdir}/platforms
 
-EXPOSE 8000
+EXPOSE 3000
 
-ENTRYPOINT [ "/usr/app/go-data-x64.sh" ]
+ENTRYPOINT [ "/usr/app/platforms/linux/x64/default/node/bin/node", "go-data/build/server/server.js" ]
