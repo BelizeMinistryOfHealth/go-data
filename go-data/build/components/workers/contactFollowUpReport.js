@@ -18,7 +18,7 @@ const getMongoDBConnection=function(){
       password:DbConfig.password
     },
     authSource:DbConfig.authSource,
-    useNewUrlParse:true,
+    useNewUrlParser:true,
     protocol: DbConfig.protocol
   });
   console.log(`Connecting via contactFollowUpReport with user:${dbConfig.user} and password: ${dbConfig.password}`);

@@ -30,7 +30,7 @@ function getMongoDBConnection(){
       password:dbConfig.password
     },
     authSource:dbConfig.authSource,
-    useNewUrlParse:true,
+    useNewUrlParser:true,
     protocol: dbConfig.protocol
   });
   console.log(`Connecting via sync with user:${dbConfig.user} and password: ${dbConfig.password}`);
