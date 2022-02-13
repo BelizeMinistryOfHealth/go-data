@@ -25,7 +25,7 @@
   "dependencies": {
     "@google/maps": "0.5.5",
     "adm-zip": "0.4.11",
-    "ajv": "6.5.4",
+    "ajv": "6.12.3",
     "alphanum-sort": "1.0.2",
     "archiver": "^3.0.0",
     "async": "2.6.1",
